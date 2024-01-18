@@ -1,0 +1,358 @@
+@font-face {
+  font-family: 'Cinzel';
+  src: url("../fonts/Cinzel/Cinzel-Bold.woff") format("ttf"), url("../fonts/Cinzel/Cinzel-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap
+}
+
+@font-face {
+  font-family: 'Cinzel-Decorative';
+  src: url("../fonts/Cinzel/CinzelDecorative-Bold.woff") format("ttf"), url("../fonts/Cinzel/CinzelDecorative-Bold.woff") format("woff");
+  font-display: swap
+}
+
+body {
+  // opacity: 0
+}
+
+.animation {
+  opacity: 0;
+}
+
+#overlay {
+  position: absolute;
+  font-size: 16px;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#overlay button {
+  background: transparent;
+  border: 0;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 12px 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#hero-lightpass {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  z-index: 2
+}
+
+.preloader {
+  overflow: hidden;
+}
+
+.preloader .preloader-blur {
+  z-index: 1;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.preloader svg {
+  width: 100%;
+  height: 100vh
+}
+
+.preloader-text1,
+.preloader-text2,
+.preloader-text3 {
+  opacity: 0;
+}
+
+.preloader .preloader-text1 {
+  position: absolute;
+  z-index: 1;
+  bottom: 10vw;
+  left: 3vw
+}
+
+.preloader .preloader-text1 p {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #EEC895;
+  margin: 0;
+  margin-top: 0.5vw
+}
+
+.preloader .preloader-text1 .initial-block::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: #1B110E;
+  opacity: 0.8;
+  filter: blur(30.5px);
+  z-index: -1
+}
+
+.preloader .preloader-text1 .initial-block {
+  display: flex
+}
+
+.preloader .preloader-text1 .initial-block h1 {
+  margin: 0
+}
+
+.preloader .preloader-text1 .initial-block h1::before {
+  content: 'E'
+}
+
+.preloader .preloader-text1 .initial-block h1::first-letter {
+  font-size: 3em;
+  color: #812020;
+  font-size: 96px;
+  line-height: 1.2;
+  border: 1px solid #EEC895;
+  padding: 0vw 1vw
+}
+
+.preloader .preloader-text1 .initial-block p {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #EEC895;
+  margin: 0
+}
+
+.preloader .preloader-text1 .initial-block .block-text1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1vw
+}
+
+.preloader .preloader-text2 {
+  position: absolute;
+  z-index: 1;
+  bottom: 25vw;
+  right: 3vw
+}
+
+.preloader .preloader-text2 p {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #EEC895;
+  margin: 0;
+  margin-top: 0.5vw
+}
+
+.preloader .preloader-text2 .initial-block::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: #1B110E;
+  opacity: 0.8;
+  filter: blur(30.5px);
+  z-index: -1
+}
+
+.preloader .preloader-text2 .initial-block {
+  display: flex
+}
+
+.preloader .preloader-text2 .initial-block h1 {
+  margin: 0
+}
+
+.preloader .preloader-text2 .initial-block h1::before {
+  content: 'E'
+}
+
+.preloader .preloader-text2 .initial-block h1::first-letter {
+  font-size: 3em;
+  color: #812020;
+  font-size: 96px;
+  line-height: 1.2;
+  border: 1px solid #EEC895;
+  padding: 0vw 1vw
+}
+
+.preloader .preloader-text2 .initial-block p {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #EEC895;
+  margin: 0
+}
+
+.preloader .preloader-text2 .initial-block .block-text2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1vw
+}
+
+.preloader .preloader-text3 {
+  position: absolute;
+  z-index: 1;
+  bottom: 2vw;
+  left: 30%;
+  margin: 0 auto
+}
+
+.preloader .preloader-text3 p {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #EEC895;
+  margin: 0;
+  margin-top: 0.5vw
+}
+
+.preloader .preloader-text3 .initial-block::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: #1B110E;
+  opacity: 0.8;
+  filter: blur(30.5px);
+  z-index: -1
+}
+
+.preloader .preloader-text3 .initial-block {
+  display: flex
+}
+
+.preloader .preloader-text3 .initial-block h1 {
+  margin: 0
+}
+
+.preloader .preloader-text3 .initial-block h1::before {
+  content: 'E'
+}
+
+.preloader .preloader-text3 .initial-block h1::first-letter {
+  font-size: 3em;
+  color: #812020;
+  font-size: 96px;
+  line-height: 1.2;
+  border: 1px solid #EEC895;
+  padding: 0vw 1vw
+}
+
+.preloader .preloader-text3 .initial-block p {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #EEC895;
+  margin: 0
+}
+
+.preloader .preloader-text3 .initial-block .block-text3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1vw
+}
+
+.door {
+  display: flex;
+}
+
+#imgDoorL,
+#imgDoorR {
+  // display: none;
+}
+
+
+
+.door img {
+  width: 5%;
+  height: auto
+}
+
+foreignObject {
+  overflow: visible
+}
+
+.door1,
+.door2 {
+  display: none;
+}
+
+.doorL img,
+.doorR img {
+  width: 105%;
+  height: 100%;
+
+}
+
+.skip-btn_container {
+  position: fixed;
+  bottom: 2vw;
+  right: 2vw;
+  z-index: 2;
+
+}
+
+.skip-btn_container button {
+  background: transparent;
+  border: none;
+  cursor: pointer
+}
+
+.skip-btn_container .skip-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.skip-btn_container .skip-btn p {
+  position: absolute;
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #EEC895;
+  text-shadow: 0px 4px 15px #000000
+}
+
+.preloader-img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}

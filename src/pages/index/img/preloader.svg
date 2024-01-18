@@ -1,0 +1,7 @@
+<svg data-content="changed"  preserveAspectRatio='xMidYMid slice'  class='' id="preloader_anim" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2160" height="1198" viewBox="0 0 2160 1198">
+  <g id="scalePreloader">
+    <image id="img02" width="2160" height="1198" xlink:href="./assets/img/20.png"/>
+    <image id="img01" width="2160" height="1198" transform="translate(0.36 -0.06)" xlink:href="./assets/img/0.png"/>
+    <rect x="0.36" y="-0.06" width="2159.64" height="1198" style="fill: #fff;opacity: 0"/>
+  </g>
+</svg>

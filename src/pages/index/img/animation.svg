@@ -1,0 +1,13 @@
+<svg data-content="changed"  preserveAspectRatio='xMidYMid slice'  class='' id="animScene2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1617" height="1078" viewBox="0 0 1617 1078">
+  <image id="bg" width="1617" height="1078" xlink:href="./assets/img/bg.png" style="isolation: isolate"/>
+  <image id="lightDoor2" width="1794" height="2018" transform="translate(440.11 374) scale(0.36)" xlink:href="./assets/img/lightDoor2.png" style="isolation: isolate;opacity: 0"/>
+  <image id="lightDoor1Bottom" width="1794" height="1054" transform="translate(440.11 717.96) scale(0.36)" xlink:href="./assets/img/lightDoor1Bottom.png" style="isolation: isolate;opacity: 0"/>
+  <image id="lightDoor1Top" width="1794" height="964" transform="translate(440.11 374) scale(0.36)" xlink:href="./assets/img/lightDoor1Top.png" style="isolation: isolate;opacity: 0"/>
+  <rect id="imgDoorL" x="691" y="387" width="102" height="331" style="fill: red"/>
+  <rect id="imgDoorR" x="793" y="387" width="102" height="331" style="fill: red"/>
+  <g id="man">
+    <image width="440" height="515" transform="translate(668.9 560.08)" xlink:href="./assets/img/man.png" style="isolation: isolate"/>
+    <rect x="361.5" y="388.5" width="862" height="862" style="fill: none"/>
+  </g>
+  <image id="bg-move" width="1619" height="1106" transform="translate(1.85 -64.77)" xlink:href="./assets/img/bg-move.png" style="isolation: isolate"/>
+</svg>
