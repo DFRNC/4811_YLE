@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let overlayBtn = document.querySelector("#overlay button")
         let audioDemo = document.getElementById("audioDemo")
         let skipBtn = document.querySelector(".skip-btn")
-        overlayBtn.addEventListener('click', function () {
-            overlay.style.display = 'none'
-        })
+        let isTriggerActivated = false;
 
         audioDemo.volume = 0.3;
         function forBtnPlay() {
@@ -43,9 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             audioDemo.currentTime = 0
         }
 
-        function skipClick() {
-            gsap.to(window, { duration: 0.5, scrollTo: animTl.scrollTrigger.labelToScroll('skip'), ease: "sine.inOut" })
-        }
+
 
         function insertObject(target, text) {
             let targetElem = document.querySelector(target)
@@ -63,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         insertObject('#imgDoorL', '.door1')
         insertObject('#imgDoorR', '.door2')
 
-        let durationAnim = 15
+        let durationAnim = 20
 
         gsap.to('.animation', { duration: 0.5, opacity: 1, ease: "sine.inOut" })
         gsap.set('.doorL', { perspective: '500px' })
@@ -75,46 +71,58 @@ document.addEventListener('DOMContentLoaded', function () {
         gsap.to('.skip-btn', { duration: 1.5, transformOrigin: "50% 50%", repeat: -1, yoyo: true, scale: 1.05, ease: "sine.inOut" })
         gsap.set('#img02', { opacity: 0, transformOrigin: "50% 50%", scale: 3.5, x: "-70%", y: "-80%" })
         gsap.set('#bg-move', { transformOrigin: "center center" })
-        let animTl = gsap.timeline({ defaults: { ease: "none" } })
-            .addLabel('myLabel')
-            .to('#img01', { duration: durationAnim, scale: 4.7, x: "-60%", y: "-60%", rotation: 25 })
-            .to('#img01', { duration: durationAnim, opacity: 0 })
-            .to('#bg-move', { duration: durationAnim, scale: 1.5 })
-            .to('#animScene2', { duration: durationAnim, scale: 1.05 }, "<")
+        function activateScrollTrigger() {
+            function skipClick() {
+                gsap.to(window, { duration: 0.5, scrollTo: animTl.scrollTrigger.labelToScroll('skip'), ease: "sine.inOut" })
+            }
+            let animTl = gsap.timeline({ paused: true, defaults: { ease: "none" } })
+                .addLabel('myLabel')
+                .to('#img01', { duration: durationAnim * 2, scale: 4.7, x: "-60%", y: "-30%", rotation: 15 })
+                .to('#img01', { duration: durationAnim * 2, opacity: 0 })
+                .to('#bg-move', { duration: durationAnim * 2, scale: 1.5 })
+                .to('#animScene2', { duration: durationAnim, scale: 1.05 }, "<")
 
-            .to('.doorL img', { duration: durationAnim * 2, rotationY: -25, })
-            .to('.doorR img', { duration: durationAnim * 2, rotationY: 25 }, "<")
-            .to('.preloader-text1', { duration: durationAnim * 2, opacity: 1 }, "<")
-            .to('#lightDoor1Top,#lightDoor1Bottom,#lightDoor2', { duration: durationAnim * 2, opacity: 0.3 }, "<")
-            .to('#man', { duration: durationAnim * 2, y: -35, scale: 0.85 }, "<")
-            .to('.preloader-text1', { duration: durationAnim * 2, opacity: 0 })
+                .to('.doorL img', { duration: durationAnim * 2, rotationY: -25, })
+                .to('.doorR img', { duration: durationAnim * 2, rotationY: 25 }, "<")
+                .to('.preloader-text1', { duration: durationAnim * 2, opacity: 1 }, "<")
+                .to('#lightDoor1Top,#lightDoor1Bottom,#lightDoor2', { duration: durationAnim * 2, opacity: 0.3 }, "<")
+                .to('#man', { duration: durationAnim * 2, y: -35, scale: 0.85 }, "<")
+                .to('.preloader-text1', { duration: durationAnim * 2, opacity: 0 })
 
-            .to('.doorL img', { duration: durationAnim * 2, rotationY: -45, })
-            .to('.doorR img', { duration: durationAnim * 2, rotationY: 45 }, "<")
-            .to('.preloader-text2', { duration: durationAnim * 2, opacity: 1 }, "<")
-            .to('#lightDoor1Top,#lightDoor1Bottom,#lightDoor2', { duration: durationAnim * 2, opacity: 0.6 }, "<")
-            .to('#man', { duration: durationAnim * 2, y: -45, scale: 0.8 }, "<")
-            .to('.preloader-text2', { duration: durationAnim * 2, opacity: 0 })
+                .to('.doorL img', { duration: durationAnim * 2, rotationY: -45, })
+                .to('.doorR img', { duration: durationAnim * 2, rotationY: 45 }, "<")
+                .to('.preloader-text2', { duration: durationAnim * 2, opacity: 1 }, "<")
+                .to('#lightDoor1Top,#lightDoor1Bottom,#lightDoor2', { duration: durationAnim * 2, opacity: 0.6 }, "<")
+                .to('#man', { duration: durationAnim * 2, y: -45, scale: 0.8 }, "<")
+                .to('.preloader-text2', { duration: durationAnim * 2, opacity: 0 })
 
-            .to('.doorL img', { duration: durationAnim * 2, rotationY: -75, })
-            .to('.doorR img', { duration: durationAnim * 2, rotationY: 75 }, "<")
-            .to('.preloader-text3', { duration: durationAnim * 2, opacity: 1 }, "<")
-            .to('#lightDoor1Top,#lightDoor1Bottom,#lightDoor2', { duration: durationAnim * 2, opacity: 1 }, "<")
-            .to('#man', { duration: durationAnim * 2, y: -65, scale: 0.7 }, "<")
-            .to('.preloader-text3', { duration: durationAnim * 2, opacity: 0 }, ">+10.5")
-            .addLabel('skip')
+                .to('.doorL img', { duration: durationAnim * 2, rotationY: -75, })
+                .to('.doorR img', { duration: durationAnim * 2, rotationY: 75 }, "<")
+                .to('.preloader-text3', { duration: durationAnim * 2, opacity: 1 }, "<")
+                .to('#lightDoor1Top,#lightDoor1Bottom,#lightDoor2', { duration: durationAnim * 2, opacity: 1 }, "<")
+                .to('#man', { duration: durationAnim * 2, y: -65, scale: 0.7 }, "<")
+                .to('.preloader-text3', { duration: durationAnim * 2, opacity: 0 }, ">+10.5")
+                .addLabel('skip')
 
-        let scrollDurSection = animTl.duration() * durationAnim
-        ScrollTrigger.create({
-            trigger: '.preloader',
-            animation: animTl,
-            start: "0% 0%",
-            end: `bottom+=${scrollDurSection}px 100%`,
-            pin: true,
-            scrub: 1.5,
+            let scrollDurSection = animTl.duration() * durationAnim
+            ScrollTrigger.create({
+                trigger: '.animation',
+                animation: animTl,
+                start: "0% 0%",
+                end: `bottom+=${scrollDurSection}px 100%`,
+                pin: true,
+                scrub: 1.5,
+            })
+            skipBtn.addEventListener("click", skipClick, false)
+
+        }
+        overlayBtn.addEventListener('click', function () {
+            overlay.style.display = 'none';
+            overlay.style.pointerEvents = 'none';
+            isTriggerActivated = true;
+            activateScrollTrigger();
         })
-
-        skipBtn.addEventListener("click", skipClick, false)
+        // skipBtn.addEventListener("click", skipClick, false)
         skipBtn.addEventListener("mouseenter", forBtnPlay, false)
         skipBtn.addEventListener("mouseleave", forBtnPause, false)
 

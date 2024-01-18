@@ -13,10 +13,20 @@
 
 body {
   // opacity: 0
+
+}
+
+.preloader {
+  overflow: hidden;
+  // position: fixed;
 }
 
 .animation {
   opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+
 }
 
 #overlay {
@@ -316,7 +326,7 @@ foreignObject {
   position: fixed;
   bottom: 2vw;
   right: 2vw;
-  z-index: 2;
+  z-index: 9;
 
 }
 
@@ -353,6 +363,6 @@ foreignObject {
 
   svg {
     width: 100%;
-    height: auto;
+    height: 100vh;
   }
 }
