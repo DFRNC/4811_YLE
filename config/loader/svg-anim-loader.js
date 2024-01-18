@@ -32,7 +32,7 @@ module.exports = function (content) {
                         svgContent = svgContent.replace(new RegExp(`="url\\(#${elemChild.properties.id}\\)"`, "g"), `="url(#${newName})"`)
                         svgContent = svgContent.replace(new RegExp(`xlink:href="#${elemChild.properties.id}"`, "g"), `xlink:href="#${newName}"`)
                     }
-                    if (elemChild.tagName == "image" && options.outImageUrl) {
+                    if (elemChild.tagName == "image") {
                         if (!elemChild.properties['xlink:href'].includes(`data:`)) {
                             let tempArr = elemChild.properties['xlink:href'].split("/")
                             svgContent = svgContent.replace(

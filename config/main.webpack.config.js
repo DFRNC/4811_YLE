@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const sortCSSmq = require('sort-css-media-queries');
@@ -10,12 +11,17 @@ const isDev = process.argv[process.argv.indexOf('--mode') + 1] === 'development'
 /**
  *  add multiple page
  */
+// const rootDirName = __dirname.filter((item) => { if (item.name[0] != "_") return true; }) 
+let rootDirName = path.resolve(__dirname, '../').split(/[\/\\]/g).reverse()[0]
+// console.log(__rootDirName);
 const pages = fs
 	.readdirSync(__dirname + '/../src/pages/', { withFileTypes: true })
 	.filter((item) => item.isDirectory())
 	.filter((item) => { if (item.name[0] != "_") return true; })
 	.map((item) => item.name);
 
+
+// /\.(hbs|svg)$/
 console.log(pages);
 
 let entry = {}
@@ -30,10 +36,9 @@ pages.forEach(page => {
 			template: `./src/pages/${page}/${page}.hbs`,
 			chunks: [`${page}`],
 			inject: true,
-			minify: false
+			minify: false,
 		}))
 });
-
 
 module.exports = {
 	entry: {
@@ -48,6 +53,11 @@ module.exports = {
 		alias: {
 			scr: path.resolve(__dirname, "../src"),
 		}
+	},
+	resolve: {
+		alias: {
+			'gltf-pipeline': path.resolve(__dirname, 'node_modules/gltf-pipeline'),
+		},
 	},
 	devtool: isDev ? 'source-map' : undefined,
 	mode: isDev ? 'development' : 'production',
@@ -68,6 +78,9 @@ module.exports = {
 			}],
 		}),
 		new CleanWebpackPlugin(),
+		new webpack.DefinePlugin({
+			TITLE: JSON.stringify(rootDirName),
+		})
 	],
 
 	resolveLoader: {
@@ -75,6 +88,7 @@ module.exports = {
 			'svg-anim-loader': path.resolve(__dirname, './loader/svg-anim-loader.js'),
 		},
 	},
+
 	module: {
 		rules: [
 			// {
@@ -192,9 +206,6 @@ module.exports = {
 			// 	]
 			// },
 		]
-	},
-	// externals: {
-	// 	gsap: 'gsap',
-	// },
+	}
 }
 

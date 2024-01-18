@@ -1,0 +1,1 @@
+document.querySelector("title").innerText = TITLE + " by DFRNC";

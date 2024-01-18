@@ -1,6 +1,7 @@
 require("./../../global/js/global-entry")
 
 import "./index.scss"
+import("../../components/head/head")
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 import ScrollToPlugin from "gsap/ScrollToPlugin";
